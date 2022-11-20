@@ -1,40 +1,38 @@
 
-// Services section
+// ......Services.....
 
-const servicesTabsMenu = document.querySelector('.services-section .menu-list');
+const servicesMenu = document.querySelector('.services-section .menu-list');
 
-servicesTabsMenu.addEventListener('click', (event) => {
+servicesMenu.addEventListener('click', (event) => {
     document.querySelector('.services-section .menu-item-active').classList.remove('menu-item-active');
     event.target.classList.add('menu-item-active');
-
-    const dataNameAtr = event.target.dataset.name;
+    const dataName = event.target.dataset.name;
 
     document.querySelector('.services-section .active-content').classList.remove('active-content');
-    document.querySelector(`.services-section .section-tab[data-name='${dataNameAtr}']`).classList.add('active-content');
+    document.querySelector(`.services-section .section-tab[data-name='${dataName}']`).classList.add('active-content');
 });
 
 
+// .......Amazing......
 
-// Amazing work section
-
-const amazingWorkTabsMenu = document.querySelector('.amazing-work .menu-list');
-amazingWorkTabsMenu.addEventListener('click', (event) => {
+const amazingWorkMenu = document.querySelector('.amazing-work .menu-list');
+amazingWorkMenu.addEventListener('click', (event) => {
     document.querySelector('.amazing-work .menu-item-active').classList.remove('menu-item-active');
     event.target.classList.add('menu-item-active');
 
-    const dataNameAtr = event.target.dataset.name;
-    const allGalleryItems = document.querySelectorAll('.amazing-work .gallery-item');
+    const dataName = event.target.dataset.name;
+    const allGItems = document.querySelectorAll('.amazing-work .gallery-item');
 
-    if (!dataNameAtr) {
-        allGalleryItems.forEach(elem => {
+    if (!dataName) {
+        allGItems.forEach(elem => {
             if (elem.classList.contains('filtered')) {
                 elem.classList.remove('filtered');
             }
         });
 
     } else {
-        allGalleryItems.forEach(elem => {
-            if (elem.dataset.name === dataNameAtr) {
+        allGItems.forEach(elem => {
+            if (elem.dataset.name === dataName) {
                 elem.classList.remove('filtered');
             } else {
                 elem.classList.add('filtered');
@@ -57,7 +55,6 @@ loadMoreButton.setAttribute('type', 'button');
 const buttonText = document.createElement('span');
 buttonText.classList.add('g-button-text');
 buttonText.textContent = 'Load More';
-
 loadMoreButton.insertAdjacentElement("beforeEnd", buttonText);
 
 sectionContent.insertAdjacentElement("beforeEnd", loader);
@@ -66,95 +63,93 @@ sectionContent.insertAdjacentElement("beforeEnd", loadMoreButton);
 
 loadMoreButton.addEventListener('click', () => {
     loader.style.display = 'block';
-
     const imageGallery = document.querySelector('.amazing-work  .image-gallery');
     const imageGalleryItems = [
         {
             'data-name': 'graphic-design',
-            'item-img': 'graphic-design/graphic-design4.jpg',
+            'item-img': 'graphic-design/image_04.jpg',
             'title-alt': 'Yellow smth',
             category: 'Graphic Design'
         },
 
         {
             'data-name': 'graphic-design',
-            'item-img': 'graphic-design/graphic-design5.jpg',
+            'item-img': 'graphic-design/image_05.jpg',
             'title-alt': 'White smth',
             category: 'Graphic Design'
         },
 
         {
             'data-name': 'graphic-design',
-            'item-img': 'graphic-design/graphic-design6.jpg',
+            'item-img': 'graphic-design/image_06.jpg',
             'title-alt': 'Book',
             category: 'Graphic Design'
         },
 
         {
-            'data-name': 'web_design',
-            'item-img': 'web_design/web-design4.jpg',
+            'data-name': 'webdesign',
+            'item-img': 'webdesign/image_04.jpg',
             'title-alt': 'Mac',
             category: 'Web Design'
         },
 
         {
-            'data-name': 'web_design',
-            'item-img': 'web_design/web-design5.jpg',
+            'data-name': 'webdesign',
+            'item-img': 'webdesign/image_05.jpg',
             'title-alt': 'HTML&CSS',
             category: 'Web Design'
         },
 
         {
-            'data-name': 'web_design',
-            'item-img': 'web_design/web-design6.jpg',
+            'data-name': 'webdesign',
+            'item-img': 'webdesign/image_06.jpg',
             'title-alt': 'Website',
             category: 'Web Design'
         },
 
         {
-            'data-name': 'landing_page',
-            'item-img': 'landing_page/landing-page4.jpg',
+            'data-name': 'landingpage',
+            'item-img': 'landingpage/image_04.jpg',
             'title-alt': 'Lorem',
             category: 'Landing Pages'
         },
 
         {
-            'data-name': 'landing_page',
-            'item-img': 'landing_page/landing-page5.jpg',
+            'data-name': 'landingpage',
+            'item-img': 'landingpage/image_05.jpg',
             'title-alt': 'Galaxy',
             category: 'Landing Pages'
         },
 
         {
-            'data-name': 'landing_page',
-            'item-img': 'landing_page/landing-page6.jpg',
+            'data-name': 'landingpage',
+            'item-img': 'landingpage/image_06.jpg',
             'title-alt': 'Landing Page',
             category: 'Landing Pages'
         },
 
         {
             'data-name': 'wordpress',
-            'item-img': 'wordpress/wordpress4.jpg',
+            'item-img': 'wordpress/image_04.jpg',
             'title-alt': 'Ipads',
             category: 'Wordpress'
         },
 
         {
             'data-name': 'wordpress',
-            'item-img': 'wordpress/wordpress5.jpg',
+            'item-img': 'wordpress/image_05.jpg',
             'title-alt': 'Site',
             category: 'Wordpress'
         },
 
         {
             'data-name': 'wordpress',
-            'item-img': 'wordpress/wordpress6.jpg',
+            'item-img': 'wordpress/image_06.jpg',
             'title-alt': 'GreenSite',
             category: 'Wordpress'
         }
 
     ];
-
 
     setTimeout(() => {
 
@@ -196,9 +191,7 @@ loadMoreButton.addEventListener('click', () => {
 
 
 
-
-
-// What people say section
+// .......People....свайп
 
 let swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
